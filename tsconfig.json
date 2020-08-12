@@ -1,17 +1,13 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "target": "es6",
-    "module": "CommonJS",
-    "declaration": true
-  },
-  "include": ["./src"],
-  "exclude": ["node_modules", "dist"]
+  "files": [],
+  "include": [],
+  "references": [
+    { "path": "./packages/utils" },
+    { "path": "./packages/utils/tsconfig.esm.json" },
+    { "path": "./packages/types" },
+    { "path": "./assistants/core" },
+    { "path": "./assistants/tidy" },
+    { "path": "./assistants/naming-conventions" },
+    { "path": "./assistants/reuse-suggestions" }
+  ]
 }

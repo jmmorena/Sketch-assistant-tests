@@ -1,49 +1,29 @@
 {
-  "name": "sketch-assistant-template",
-  "homepage": "https://github.com/sketch-hq/sketch-assistant-template",
+  "name": "sketch-assistants",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "sketch": "dist/sketch.js",
+  "main": "index.js",
   "license": "MIT",
-  "sketch-assistant": {
-    "title": "Sketch Assistant Template",
-    "description": "Template repository for a starter Assistant project",
-    "icon": ""
-  },
-  "author": {
-    "name": "Your Name or Company Name"
-  },
-  "keywords": [
-    "sketch",
-    "sketch files",
-    "sketch assistant",
-    "public",
-    "assistant",
-    "design ops"
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "assistants/*"
   ],
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "test": "jest --no-cache",
-    "build": "rm -rf dist && npm run build:node && npm run build:sketch",
-    "build:node": "tsc",
-    "build:sketch": "webpack",
-    "package-tarball": "npm run build && npm pack"
-  },
-  "devDependencies": {
-    "@sketch-hq/sketch-assistant-utils": "6.0.0",
-    "@types/jest": "26.0.4",
-    "@types/node": "14.0.22",
-    "jest": "26.1.0",
-    "node-fetch": "2.6.0",
-    "prettier": "2.0.5",
-    "ts-jest": "26.1.2",
-    "typescript": "3.9.6",
-    "webpack": "4.43.0",
-    "webpack-cli": "3.3.12"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "@sketch-hq/sketch-assistant-types": "6.0.0"
+    "@changesets/cli": "2.6.5",
+    "@types/jest": "25.2.1",
+    "@types/node": "12.12.38",
+    "jest": "25.5.4",
+    "prettier": "2.0.5",
+    "ts-jest": "25.5.1",
+    "typescript": "3.8.3",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.11"
+  },
+  "scripts": {
+    "test": "yarn workspaces run test --ci",
+    "build": "./build.sh",
+    "release": "yarn build && changeset publish",
+    "prettier-check": "prettier --check \"**/*.{ts,js,md,json}\""
   }
 }
